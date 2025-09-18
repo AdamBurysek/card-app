@@ -1,0 +1,231 @@
+{
+  "cards": [
+    {
+      "id": "Q2FyZDpjOWQ2ZmE5Ni1kMmI4LTQ1YTMtYmVlZC1mMjI3MDYxZGRkNmM=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "she savored",
+      "pronunciation": null,
+      "back": "vychutnávala",
+      "hint": "she savored her few hours of freedom and solitude",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:04:38.993Z",
+      "knownAt": "2023-11-19T16:09:44.247Z",
+      "knownUntil": "2023-11-19T16:39:44.247Z",
+      "knownCount": 2,
+      "failCount": 21,
+      "source": null,
+      "svg": null
+    },
+    {
+      "id": "Q2FyZDo2ZDgwODMyMS1lYTA1LTRmMGMtYWRiMi1iMDY2NzliNTUwM2E=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "squint",
+      "pronunciation": null,
+      "back": "šilhat",
+      "hint": "She has squint eyes.",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:04:39.542Z",
+      "knownAt": null,
+      "knownUntil": null,
+      "knownCount": 0,
+      "failCount": 0,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246NTk2Njk2Mg==",
+        "url": "https://imgs.duocards.com/flatsSvg/5966962.svg",
+        "id": "VXBsb2FkOjM0NDEz"
+      }
+    },
+    {
+      "id": "Q2FyZDowNjhmNzA1ZC03ZmRkLTQyMTEtYWU2Yi01OWVmNWM5NWM0MzU=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "contingency plan",
+      "pronunciation": null,
+      "back": "pohotovostní plán",
+      "hint": "",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:04:40.424Z",
+      "knownAt": null,
+      "knownUntil": null,
+      "knownCount": 0,
+      "failCount": 0,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246MzM5MzU0OA==",
+        "url": "https://imgs.duocards.com/flatsSvg/3393548.svg",
+        "id": "VXBsb2FkOjI4MjQ="
+      }
+    },
+    {
+      "id": "Q2FyZDpjZTk2MWEyZC1kOTVjLTQ4YjctODMwZC1jMDVhZDg0MjY3NDU=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "Rural",
+      "pronunciation": null,
+      "back": "in, relating to, or characteristic of the countryside rather than the town (venkovsky)",
+      "hint": "remote rural areas",
+      "flipped": true,
+      "loopedAt": "2024-04-27T21:04:40.478Z",
+      "knownAt": "2023-11-19T16:09:32.673Z",
+      "knownUntil": "2023-11-21T16:09:32.673Z",
+      "knownCount": 4,
+      "failCount": 4,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246MTcwMzIxNw==",
+        "url": "https://imgs.duocards.com/flatsSvg/1703217.svg",
+        "id": "VXBsb2FkOjI1NTg0"
+      }
+    },
+    {
+      "id": "Q2FyZDozOGQzMTliNi0yY2MzLTRiYTEtYjg4MS05ZjY4ZTZjMjUyNzg=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "the acumen",
+      "pronunciation": null,
+      "back": "prozíravost",
+      "hint": "business acumen",
+      "flipped": true,
+      "loopedAt": "2024-04-27T21:06:10.924Z",
+      "knownAt": "2023-11-19T16:09:57.282Z",
+      "knownUntil": "2023-11-19T16:11:29.288Z",
+      "knownCount": 0,
+      "failCount": 12,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246NDI1MjQzNg==",
+        "url": "https://imgs.duocards.com/flatsSvg/4252436.svg",
+        "id": "VXBsb2FkOjE4Mw=="
+      }
+    },
+    {
+      "id": "Q2FyZDpiNjJiZTViNi0yYWUxLTQ0ZGItODFlOC0yMTUxNmQyNzJlOTg=",
+      "sCardId": "U0NhcmQ6ZmUzNWQ0YTItZTIwZS00MTk4LWJjM2MtMDg5YjNiODA0N2E5",
+      "sourceId": "U291cmNlOjljZjQ4M2YxLTZkM2YtNDEzZi04ZWI2LTU2NDI0N2U1ODJjNA==",
+      "front": "Drain",
+      "pronunciation": null,
+      "back": "odtok",
+      "hint": "we drained the swimming pool",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:06:33.464Z",
+      "knownAt": "2024-01-25T12:28:26.537Z",
+      "knownUntil": "2024-01-26T00:28:26.537Z",
+      "knownCount": 3,
+      "failCount": 1,
+      "source": {
+        "kind": "set",
+        "course": false,
+        "id": "U291cmNlOjljZjQ4M2YxLTZkM2YtNDEzZi04ZWI2LTU2NDI0N2U1ODJjNA=="
+      },
+      "svg": {
+        "flatId": "RmxhdEljb246ODQ5MTA5",
+        "url": "https://imgs.duocards.com/flatsSvg/849109.svg",
+        "id": "VXBsb2FkOjI0MzY="
+      }
+    },
+    {
+      "id": "Q2FyZDo2MDI2MGFlNy04YWRhLTQ2NTAtYjhjMS1lZTgzZWUzZjExYTM=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "sprinkler",
+      "pronunciation": null,
+      "back": "postřikovač",
+      "hint": "I left the sprinkler on in the backyard.",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:06:33.821Z",
+      "knownAt": null,
+      "knownUntil": null,
+      "knownCount": 0,
+      "failCount": 0,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246NDI4NDgzNA==",
+        "url": "https://imgs.duocards.com/flatsSvg/4284834.svg",
+        "id": "VXBsb2FkOjM0OTU2"
+      }
+    },
+    {
+      "id": "Q2FyZDo5OWJiYjBlYS00YjVjLTQwNmMtYTMzMS1hM2QxODM5ZGM1YTk=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "tripe",
+      "pronunciation": null,
+      "back": "dršťky",
+      "hint": "Tripe is a type of edible offal from the stomachs of various domestic animals.",
+      "flipped": true,
+      "loopedAt": "2024-04-27T21:06:33.854Z",
+      "knownAt": null,
+      "knownUntil": null,
+      "knownCount": 0,
+      "failCount": 0,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246NDkxNDY0Nw==",
+        "url": "https://imgs.duocards.com/flats256/4914647.png",
+        "id": "VXBsb2FkOjg2Nzk1"
+      }
+    },
+    {
+      "id": "Q2FyZDo2YTFkYmE5MS1hZTIyLTQxYWMtYTNhZC00ZTdjZDA3ZDg2NGM=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "commence",
+      "pronunciation": null,
+      "back": "zahájit",
+      "hint": "his design team commenced work",
+      "flipped": true,
+      "loopedAt": "2024-04-27T21:06:34.717Z",
+      "knownAt": "2024-02-07T21:12:16.217Z",
+      "knownUntil": "2024-02-07T21:42:16.217Z",
+      "knownCount": 2,
+      "failCount": 3,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246MTA3MTI3NQ==",
+        "url": "https://imgs.duocards.com/flatsSvg/1071275.svg",
+        "id": "VXBsb2FkOjUwNTkw"
+      }
+    },
+    {
+      "id": "Q2FyZDo0NjU1N2M5Mi04NzU1LTRmZGEtYmRmYi0yZmE3ZGZiYzUwZGI=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "To vex",
+      "pronunciation": null,
+      "back": "Znepokojovat",
+      "hint": "What vex you the most",
+      "flipped": true,
+      "loopedAt": "2024-04-27T21:06:34.779Z",
+      "knownAt": "2023-11-21T16:03:57.637Z",
+      "knownUntil": "2023-11-21T16:33:57.637Z",
+      "knownCount": 2,
+      "failCount": 20,
+      "source": null,
+      "svg": {
+        "flatId": "RmxhdEljb246NDAyMjA3MA==",
+        "url": "https://imgs.duocards.com/flatsSvg/4022070.svg",
+        "id": "VXBsb2FkOjE3NDQ4"
+      }
+    },
+    {
+      "id": "Q2FyZDoyNWQxNzNhYy0wZDFiLTQ1YmItOGQ2Ni1lOWVmMmJiYzQyN2I=",
+      "sCardId": null,
+      "sourceId": null,
+      "front": "the sedition",
+      "pronunciation": null,
+      "back": "vzpoura",
+      "hint": "He was captured for sedition.",
+      "flipped": false,
+      "loopedAt": "2024-04-27T21:06:34.809Z",
+      "knownAt": "2023-11-21T21:19:45.633Z",
+      "knownUntil": "2023-11-21T21:49:45.633Z",
+      "knownCount": 2,
+      "failCount": 13,
+      "source": null,
+      "svg": null
+    }
+  ]
+}

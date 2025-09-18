@@ -1,0 +1,74 @@
+.card {
+  width: 20rem;
+  height: 26.25rem;
+  margin: 1.5rem auto;
+  perspective: 62.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  box-shadow: 0 0.625rem 1.875rem var(--color-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem;
+}
+
+.card-back {
+  width: 100%;
+  transform: rotateY(180deg);
+  place-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.is-hidden {
+  visibility: hidden;
+}
+
+.card-image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: contain;
+}
+
+.placeholder {
+  background: var(--color-bg);
+  border-radius: 0.75rem;
+}
+
+.card-word {
+  font-size: var(--font-size-card-word);
+  font-weight: 700;
+}
+
+.card-hint {
+  font-size: var(--font-size-card-hint);
+  color: var(--color-hint);
+  text-align: center;
+}
+
+
