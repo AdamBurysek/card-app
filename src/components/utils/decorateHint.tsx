@@ -54,7 +54,8 @@ export const decorateHint = (frontWord: string, hint: string): ReactNode => {
 
       // Merge prefix + word into one bold (e.g., "to commence" or "she savored")
       const hasPrefixBefore =
-        prevToken && frontParts.length > 1 && prevToken.toLowerCase() === frontParts[0];
+        prevToken &&
+        prevToken.toLowerCase() === frontParts[frontParts.length - 2];
 
       if (hasPrefixBefore) {
         result.splice(
