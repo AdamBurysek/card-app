@@ -33,8 +33,8 @@ const Card = () => {
   const [isFlipped, setIsFlipped] = useState<boolean>(false)
   const [hideBackText, setHideBackText] = useState<boolean>(false)
 
-  const current: CardItem | undefined = cards[currentIndex]
-  if (!current) return null
+  const currentCard: CardItem | undefined = cards[currentIndex]
+  if (!currentCard) return null
 
   const handleNext = () => {
     setIsFlipped(false)
@@ -45,11 +45,18 @@ const Card = () => {
     }, 500)
   }
 
-  const handleActivate = () => {
+  const handleCardFlip = () => {
     if (!isFlipped) {
       setIsFlipped(true)
     } else {
       handleNext()
+    }
+  }
+
+  const handleCardKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      handleCardFlip()
     }
   }
 
@@ -58,27 +65,22 @@ const Card = () => {
       className="card"
       role="button"
       tabIndex={0}
-      onClick={handleActivate}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          handleActivate()
-        }
-      }}
+      onClick={handleCardFlip}
+      onKeyDown={handleCardKeyDown}
       aria-pressed={isFlipped}
     >
       <div className={"card-inner" + (isFlipped ? " is-flipped" : "")}>
         <div className="card-face card-front">
-          {current.svg?.url ? (
-            <img className="card-image" src={current.svg.url} alt={current.front} />
+          {currentCard.svg?.url ? (
+            <img className="card-image" src={currentCard.svg.url} alt={currentCard.front} />
           ) : (
             <div className="card-image placeholder" aria-hidden="true" />
           )}
-          <div className="card-word">{current.front}</div>
-          {current.hint ? <div className="card-hint">{decorateHint(current.front, current.hint)}</div> : null}
+          <div className="card-word">{currentCard.front}</div>
+          {currentCard.hint ? <div className="card-hint">{decorateHint(currentCard.front, currentCard.hint)}</div> : null}
         </div>
         <div className="card-face card-back">
-          <div className="card-back-word">{ hideBackText ? " " : current.back}</div>
+          <div className="card-back-word">{ hideBackText ? " " : currentCard.back}</div>
         </div>
       </div>
     </div>

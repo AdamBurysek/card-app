@@ -1,140 +1,75 @@
+import React from "react";
 import type { ReactNode } from "react";
 
-export function decorateHint(frontWord: string, hint: string): ReactNode {
+/**
+ * Simple matcher that checks whether token contains the base word.
+ * Avoids matching very short bases (<3 letters) to reduce false positives.
+ */
+const matchesWordVariant = (tokenWord: string, baseWord: string): boolean => {
+  tokenWord = tokenWord.toLowerCase();
+  baseWord = baseWord.toLowerCase();
+
+  if (tokenWord === baseWord) return true;
+  if (baseWord.length < 3) return false;
+
+  return tokenWord.includes(baseWord);
+};
+
+/**
+ * Highlight occurrences of a given "frontWord" inside a hint string.
+ * - If frontWord has 2 words, treat the first as an optional prefix
+ * - Preserves punctuation and spaces
+ * - Wraps matches with <b> … </b>
+ */
+export const decorateHint = (frontWord: string, hint: string): ReactNode => {
   if (!hint || !frontWord) return hint;
 
-  /** Normalize candidate search bases */
-  const normalized = frontWord.trim().toLowerCase();
-  const withoutPrefix = normalized.replace(/^(the|to)\s+/i, "");
-  const searchBases = Array.from(new Set([normalized, withoutPrefix].filter(Boolean)));
+  const front = frontWord.trim().toLowerCase();
+  const frontParts = front.split(/\s+/);
 
-  /** Generate token list: words vs non-words (punctuation, spaces) */
-  type Token = { text: string; isWord: boolean };
-  const tokens: Token[] = [];
-  const tokenRegex = /([A-Za-z]+)|([^A-Za-z]+)/g;
-  let match: RegExpExecArray | null;
-  while ((match = tokenRegex.exec(hint)) !== null) {
-    tokens.push(
-      match[1]
-        ? { text: match[1], isWord: true }
-        : { text: match[2], isWord: false }
+  let searchFrontWords: string[];
+  if (frontParts.length > 1) {
+    // allow both full and "without prefix" version
+    searchFrontWords = Array.from(
+      new Set([front, frontParts.slice(1).join(" ")])
     );
+  } else {
+    searchFrontWords = [front];
   }
 
-  /** Create list of possible multi-word phrases from bases */
-  const phraseCandidates = searchBases
-    .map((base) => base.split(/\s+/).filter(Boolean))
-    .filter((words) => words.length > 0);
+  /** Tokenize hint input into words + separators */
+  const tokens = hint.split(/([A-Za-z]+|\s+|[^A-Za-z\s]+)/).filter(Boolean);
 
   const result: ReactNode[] = [];
 
-  /**
-   * Helper: Try to match a full multi-word phrase at given index
-   */
-  function tryMatchPhrase(startIndex: number): { matched: boolean; endIndex: number } {
-    for (const phraseWords of phraseCandidates) {
-      if (phraseWords.length <= 1) continue;
-
-      let index = startIndex;
-      let valid = true;
-
-      for (let w = 0; w < phraseWords.length; w++) {
-        const expected = phraseWords[w];
-        const current = tokens[index];
-
-        // Word mismatch → fail
-        if (!current || !current.isWord || current.text.toLowerCase() !== expected) {
-          valid = false;
-          break;
-        }
-        index++;
-
-        // Require whitespace between phrase words
-        if (w < phraseWords.length - 1) {
-          const separator = tokens[index];
-          if (!separator || separator.isWord || !/^\s+$/.test(separator.text)) {
-            valid = false;
-            break;
-          }
-          index++;
-        }
-      }
-
-      if (valid) {
-        // Collect original text (with spaces/punctuations preserved)
-        const phraseText = tokens.slice(startIndex, index).map((t) => t.text).join("");
-        result.push(<b key={`ph-${startIndex}`}>{phraseText}</b>);
-        return { matched: true, endIndex: index };
-      }
-    }
-    return { matched: false, endIndex: startIndex };
-  }
-
-  /**
-   * Main loop: iterate through tokens, decorate matches
-   */
+  /** Main loop: walk through tokens and decorate matches */
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
 
-    // 1) Try multi-word phrase match
-    const phraseAttempt = tryMatchPhrase(i);
-    if (phraseAttempt.matched) {
-      i = phraseAttempt.endIndex - 1;
-      continue;
-    }
+    if (
+      token &&
+      searchFrontWords.some((word) => matchesWordVariant(token, word))
+    ) {
+      const prevToken = tokens[i - 2]; // [i - 1] is usually a space
 
-    // 2) Single word match against bases
-    if (token.isWord && searchBases.some((b) => token.text.toLowerCase().includes(b))) {
-      const prev = tokens[i - 1];
-      const prev2 = tokens[i - 2];
+      // Merge prefix + word into one bold (e.g., "to commence" or "she savored")
+      const hasPrefixBefore =
+        prevToken && frontParts.length > 1 && prevToken.toLowerCase() === frontParts[0];
 
-      // Handle "to <word>" case (merge into one bold span)
-      const hasToBefore =
-        prev2?.isWord &&
-        prev2.text.toLowerCase() === "to" &&
-        prev && !prev.isWord;
-
-      if (hasToBefore && result.length >= 2) {
+      if (hasPrefixBefore) {
         result.splice(
           result.length - 2,
           2,
-          <b key={`to-${i}`}>{prev2.text + prev.text}</b>
+          <b key={`two-words-${i}`}>{prevToken + " " + token}</b>
         );
+        continue;
       }
 
-      result.push(<b key={`w-${i}`}>{token.text}</b>);
-
-      // Handle "(...)" after match
-      const next = tokens[i + 1];
-      const next2 = tokens[i + 2];
-      const hasParen =
-        next && !next.isWord && /^\s*$/.test(next.text) &&
-        next2 && !next2.isWord && next2.text.startsWith("(");
-
-      if (hasParen) {
-        let j = i + 2;
-        let parenText = "";
-        while (j < tokens.length) {
-          parenText += tokens[j].text;
-          const endsHere = tokens[j].text.includes(")");
-          j++;
-          if (endsHere) {
-            // Optional trailing comma after parenthesis
-            if (tokens[j] && !tokens[j].isWord && tokens[j].text.startsWith(",")) {
-              parenText += tokens[j].text;
-              j++;
-            }
-            break;
-          }
-        }
-        result.push(<b key={`p-${i}`}>{next.text + parenText}</b>);
-        i = j - 1;
-      }
+      result.push(<b key={`word-${i}`}>{token}</b>);
     } else {
-      // 3) Non-match → keep as plain span
-      result.push(<span key={`t-${i}`}>{token.text}</span>);
+      result.push(<React.Fragment key={`token-${i}`}>{token}</React.Fragment>);
     }
   }
 
   return <>{result}</>;
-}
+};
